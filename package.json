@@ -20,5 +20,13 @@
   "devDependencies": {
     "nodemon": "^3.0.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumesh-s-dev/portfolio-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sumesh-s-dev/portfolio-backend/issues"
+  },
+  "homepage": "https://github.com/sumesh-s-dev/portfolio-backend#readme",
   "description": ""
 }
