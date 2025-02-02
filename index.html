@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S. Sumesh - Portfolio</title>
+    <!-- Phosphor Icons - Modern, consistent icon set -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #4a4a4a;
+            --accent-color: #3b82f6;
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-color: #1a1a1a;
+            --border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #ffffff;
+            --secondary-color: #d1d5db;
+            --accent-color: #60a5fa;
+            --bg-color: #111827;
+            --card-bg: #1f2937;
+            --text-color: #ffffff;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 50%;
+            background: var(--card-bg);
+            cursor: pointer;
+            color: var(--text-color);
+            box-shadow: 0 2px 4px var(--border-color);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px var(--border-color);
+        }
+
+        header {
+            background-color: var(--card-bg);
+            padding: 4rem 0;
+            box-shadow: 0 1px 3px var(--border-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-content {
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            letter-spacing: -0.025em;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-links, .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-links a, .social-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s ease;
+        }
+
+        .contact-links a:hover, .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .section {
+            margin: 3rem 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px var(--border-color);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--secondary-color);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.375rem;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: border-color 0.2s ease;
+            resize: none; /* Disable resizing */
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-links, .social-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.125rem;
+            }
+        }
+
+        /* Added styles for clickable education cards */
+        .education-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .education-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px var(--border-color);
+        }
+        .status-message {
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    display: none;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.status-message.success {
+    background-color: #dcfce7;
+    color: #166534;
+    display: block;
+}
+
+.status-message.error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    display: block;
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="ph ph-moon"></i>
+    </button>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>S. Sumesh</h1>
+                <p class="subtitle">MCA Student | Software Developer & AI Enthusiast</p>
+                <div class="contact-links">
+                    <a href="mailto:sumesh2003nov5@gmail.com">
+                        <i class="ph ph-envelope" alt="Email Icon"></i>
+                        sumesh2003nov5@gmail.com
+                    </a>
+                    <a href="tel:9778716121">
+                        <i class="ph ph-phone" alt="Phone Icon"></i>
+                        9778716121
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/sumesh-s-dev" target="_blank">
+                        <i class="ph ph-github-logo" alt="GitHub Icon"></i>
+                        GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/s-sumesh-759132308/" target="_blank">
+                        <i class="ph ph-linkedin-logo" alt="LinkedIn Icon"></i>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2>About Me</h2>
+            <div class="card">
+                <p>I am an MCA student at Lead College of Management, Palakkad, with a strong foundation in programming, AI, and web development. 
+                I completed my BCA from Nehru Arts and Science College, Coimbatore, and I am passionate about building scalable software solutions 
+                while exploring emerging technologies like AI, IoT, and cybersecurity.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Skills</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Languages</h3>
+                    <p>Java, Python, JavaScript, Shell Scripting</p>
+                </div>
+                <div class="card">
+                    <h3>Web Technologies</h3>
+                    <p>React, HTML/CSS, Web Programming (Python)</p>
+                </div>
+                <div class="card">
+                    <h3>Mobile Development</h3>
+                    <p>Flutter, Android Development</p>
+                </div>
+                <div class="card">
+                    <h3>AI/ML</h3>
+                    <p>Generative AI, NLP, Machine Learning, Prompt Engineering</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Featured Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>AI Chatbot with NLP</h3>
+                    <p>Built a chatbot using Python and NLTK for natural language understanding. Integrated with a React frontend and Flask backend.</p>
+                </div>
+                <div class="card">
+                    <h3>IoT-Based Smart Home System</h3>
+                    <p>Developed a system to control home appliances remotely using Arduino and NodeMCU.</p>
+                </div>
+                <div class="card">
+                    <h3>E-Commerce Platform</h3>
+                    <p>Created a full-stack e-commerce site with React (frontend) and Java Spring Boot (backend).</p>
+                </div>
+                <div class="card">
+                    <h3>Task Manager App</h3>
+                    <p>Designed a cross-platform mobile app using Flutter and Firebase for real-time data sync.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Education</h2>
+            <div class="grid">
+                <a href="https://lead.ac.in/" class="education-card card" target="_blank">
+                    <h3>MCA (2024-2026)</h3>
+                    <p>Lead College of Management, Palakkad</p>
+                </a>
+                <a href="https://nasccbe.ac.in/" class="education-card card" target="_blank">
+                    <h3>BCA (2021-2024)</h3>
+                    <p>Nehru Arts and Science College, Coimbatore</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Certifications</h2>
+            <div class="card">
+                <ul>
+                    <li>Prompt Engineering for AI Systems</li>
+                    <li>Machine Learning with Python</li>
+                    <li>Cybersecurity Fundamentals</li>
+                </ul>
+            </div>
+        </section>
+
+        <!DOCTYPE html>
+<html lang="en">
+
+<!-- Replace your contact form section with this updated version -->
+<section class="section">
+    <h2>Contact Me</h2>
+    <div class="card">
+        <form id="contact-form" class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+            <div id="status-message" class="status-message"></div>
+        </form>
+    </div>
+</section>
+
+<!-- Replace all script tags at the bottom of your body with this updated version -->
+<script>
+    // Theme toggle functionality
+    let isDark = false;
+    const toggleButton = document.querySelector('.theme-toggle');
+    
+    function toggleTheme() {
+        isDark = !isDark;
+        document.body.dataset.theme = isDark ? 'dark' : 'light';
+        
+        const themeIcon = toggleButton.querySelector('i');
+        if (isDark) {
+            themeIcon.classList.remove('ph-moon');
+            themeIcon.classList.add('ph-sun');
+        } else {
+            themeIcon.classList.remove('ph-sun');
+            themeIcon.classList.add('ph-moon');
+        }
+    }
+
+    // Contact form handler
+    document.getElementById('contact-form').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        
+        const form = event.target;
+        const submitBtn = form.querySelector('button');
+        const statusMessage = document.getElementById('status-message');
+        
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        
+        try {
+            const formData = {
+                name: form.name.value,
+                email: form.email.value,
+                message: form.message.value
+            };
+
+            const response = await fetch('http://localhost:3001/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to send message');
+            }
+
+            statusMessage.textContent = 'Message sent successfully!';
+            statusMessage.className = 'status-message success';
+            form.reset();
+
+        } catch (error) {
+            statusMessage.textContent = 'Failed to send message. Please try again later.';
+            statusMessage.className = 'status-message error';
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+            
+            setTimeout(() => {
+                statusMessage.style.display = 'none';
+            }, 5000);
+        }
+    });
+</script>
+</body>
+</html>
