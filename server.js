@@ -28,19 +28,26 @@ app.post('/api/contact', async (req, res) => {
             return res.status(400).json({ error: 'All fields are required' });
         }
 
-        // Prepare email content
+        // Prepare email content with a professional design
         const mailOptions = {
             from: `"${name}" <${process.env.EMAIL_USER}>`, // Sender's name and your email
             to: 'sumesh2003nov5@gmail.com', // Your email address where messages will be received
             replyTo: email, // Replies will go to the sender's email
             subject: `New Contact Form Message from ${name}`, // Subject of the email
             html: `
-                <h2>📩 New Contact Form Message</h2>
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-                <p><strong>Message:</strong> ${message}</p>
-                <hr>
-                <p>🔹 This message was sent from your portfolio contact form.</p>
+                <html>
+                    <body style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
+                        <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f4f4f4; border-radius: 8px;">
+                            <h2 style="text-align: center; color: #4CAF50;">📩 New Contact Form Message</h2>
+                            <p><strong>Name:</strong> ${name}</p>
+                            <p><strong>Email:</strong> <a href="mailto:${email}" style="color: #007BFF;">${email}</a></p>
+                            <p><strong>Message:</strong></p>
+                            <p style="white-space: pre-wrap; background-color: #fff; padding: 10px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">${message}</p>
+                            <hr style="border-top: 2px solid #4CAF50;" />
+                            <p style="text-align: center; color: #777;">🔹 This message was sent from your portfolio contact form.</p>
+                        </div>
+                    </body>
+                </html>
             `
         };
 
