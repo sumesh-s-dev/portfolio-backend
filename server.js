@@ -30,14 +30,17 @@ app.post('/api/contact', async (req, res) => {
 
         // Email content
         const mailOptions = {
-            from: process.env.EMAIL_USER,
+            from: `"${name}" <${process.env.EMAIL_USER}>`, // Shows sender's name but uses your email
             to: 'sumesh2003nov5@gmail.com', // Your email address
+            replyTo: email, // Ensures replies go to the sender
             subject: `New Contact Form Message from ${name}`,
             html: `
-                <h3>New Contact Form Message</h3>
+                <h2>📩 New Contact Form Message</h2>
                 <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
                 <p><strong>Message:</strong> ${message}</p>
+                <hr>
+                <p>🔹 This message was sent from your portfolio contact form.</p>
             `
         };
 
@@ -51,7 +54,7 @@ app.post('/api/contact', async (req, res) => {
     }
 });
 
-// Try different ports if the default is in use, but stay within range
+// Function to handle port conflicts and try different ports if necessary
 const tryPort = (startPort, maxRetries = 10) => {
     if (startPort > 65535) {
         console.error("No available ports. Exiting...");
