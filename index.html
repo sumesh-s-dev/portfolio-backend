@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -253,30 +254,6 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 6px var(--border-color);
         }
-        .status-message {
-    padding: 0.75rem;
-    border-radius: 0.375rem;
-    display: none;
-    margin-top: 1rem;
-    text-align: center;
-}
-
-.status-message.success {
-    background-color: #dcfce7;
-    color: #166534;
-    display: block;
-}
-
-.status-message.error {
-    background-color: #fee2e2;
-    color: #991b1b;
-    display: block;
-}
-
-button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
     </style>
 </head>
 <body>
@@ -316,17 +293,80 @@ button:disabled {
     <main class="container">
         <section class="section">
             <h2>About Me</h2>
-            <p>Hi, I'm Sumesh. I'm an MCA student passionate about programming, software development, and AI.</p>
+            <div class="card">
+                <p>I am an MCA student at Lead College of Management, Palakkad, with a strong foundation in programming, AI, and web development. 
+                I completed my BCA from Nehru Arts and Science College, Coimbatore, and I am passionate about building scalable software solutions 
+                while exploring emerging technologies like AI, IoT, and cybersecurity.</p>
+            </div>
         </section>
 
         <section class="section">
-            <h2>My Skills</h2>
-            <ul>
-                <li>Python, Java, C++</li>
-                <li>Web Development: HTML, CSS, JavaScript</li>
-                <li>Databases: MySQL, SQL</li>
-                <li>Cloud Computing & AI</li>
-            </ul>
+            <h2>Skills</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Languages</h3>
+                    <p>Java, Python, JavaScript, Shell Scripting</p>
+                </div>
+                <div class="card">
+                    <h3>Web Technologies</h3>
+                    <p>React, HTML/CSS, Web Programming (Python)</p>
+                </div>
+                <div class="card">
+                    <h3>Mobile Development</h3>
+                    <p>Flutter, Android Development</p>
+                </div>
+                <div class="card">
+                    <h3>AI/ML</h3>
+                    <p>Generative AI, NLP, Machine Learning, Prompt Engineering</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Featured Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>AI Chatbot with NLP</h3>
+                    <p>Built a chatbot using Python and NLTK for natural language understanding. Integrated with a React frontend and Flask backend.</p>
+                </div>
+                <div class="card">
+                    <h3>IoT-Based Smart Home System</h3>
+                    <p>Developed a system to control home appliances remotely using Arduino and NodeMCU.</p>
+                </div>
+                <div class="card">
+                    <h3>E-Commerce Platform</h3>
+                    <p>Created a full-stack e-commerce site with React (frontend) and Java Spring Boot (backend).</p>
+                </div>
+                <div class="card">
+                    <h3>Task Manager App</h3>
+                    <p>Designed a cross-platform mobile app using Flutter and Firebase for real-time data sync.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Education</h2>
+            <div class="grid">
+                <a href="https://lead.ac.in/" class="education-card card" target="_blank">
+                    <h3>MCA (2024-2026)</h3>
+                    <p>Lead College of Management, Palakkad</p>
+                </a>
+                <a href="https://nasccbe.ac.in/" class="education-card card" target="_blank">
+                    <h3>BCA (2021-2024)</h3>
+                    <p>Nehru Arts and Science College, Coimbatore</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Certifications</h2>
+            <div class="card">
+                <ul>
+                    <li>Prompt Engineering for AI Systems</li>
+                    <li>Machine Learning with Python</li>
+                    <li>Cybersecurity Fundamentals</li>
+                </ul>
+            </div>
         </section>
 
         <section class="section">
